@@ -112,6 +112,15 @@
     line-height: var(--lh-relaxed);
 }
 
+.hero__highlight-inline {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    letter-spacing: var(--ls-tight);
+    font-size: 0.95em;
+}
+
 /* —— Hero CTA Buttons —— */
 .hero__actions {
     display: flex;
