@@ -1,0 +1,163 @@
+/* ============================================
+   ANIMATIONS — FirstGod Landing
+   ============================================ */
+
+/* ---------- Float / Levitate ---------- */
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes float-medium {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.anim-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+.anim-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+}
+
+
+/* ---------- Fade In Up (initial load) ---------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fade-in-up {
+    animation: fadeInUp 0.8s var(--ease-out) both;
+}
+
+.anim-fade-in-up--d1 {
+    animation-delay: 0.1s;
+}
+
+.anim-fade-in-up--d2 {
+    animation-delay: 0.25s;
+}
+
+.anim-fade-in-up--d3 {
+    animation-delay: 0.4s;
+}
+
+.anim-fade-in-up--d4 {
+    animation-delay: 0.55s;
+}
+
+.anim-fade-in-up--d5 {
+    animation-delay: 0.7s;
+}
+
+.anim-fade-in-up--d6 {
+    animation-delay: 0.85s;
+}
+
+
+/* ---------- Scale In ---------- */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.anim-scale-in {
+    animation: scaleIn 0.9s var(--ease-out) both;
+}
+
+.anim-scale-in--d4 {
+    animation-delay: 0.5s;
+}
+
+.anim-scale-in--d5 {
+    animation-delay: 0.65s;
+}
+
+.anim-scale-in--d6 {
+    animation-delay: 0.8s;
+}
+
+
+/* ---------- Slide In from sides (float cards) ---------- */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+.anim-slide-in-right {
+    animation: slideInRight 0.8s var(--ease-out) both;
+}
+
+.anim-slide-in-left {
+    animation: slideInLeft 0.8s var(--ease-out) both;
+}
+
+
+/* ---------- Shimmer / Shine ---------- */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.anim-shimmer {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}

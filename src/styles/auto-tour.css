@@ -1,0 +1,505 @@
+/* src/styles/auto-tour.css */
+
+.auto-tour-app {
+    /* Variables exactas de app/index.html para mantener fidelidad total */
+    --primary: #1d1d1f;
+    --primary-hover: #000000;
+    --primary-soft: rgba(29, 29, 31, 0.08);
+
+    --bg-app: #f5f5f7;
+    --bg-card: #ffffff;
+    --bg-sidebar: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.92);
+    --bg-hover: #f5f5f7;
+    --bg-active: #1d1d1f;
+
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #aeaeb2;
+    --text-inverse: #ffffff;
+
+    --border-light: rgba(0, 0, 0, 0.06);
+    --border-medium: rgba(0, 0, 0, 0.1);
+
+    --status-active: #34c759;
+    --status-active-bg: rgba(52, 199, 89, 0.12);
+    --status-pending: #ff9f0a;
+    --status-pending-bg: rgba(255, 159, 10, 0.12);
+    --status-inactive: #ff3b30;
+    --status-inactive-bg: rgba(255, 59, 48, 0.12);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    --sidebar-width: 200px; /* Algo comprimido para entrar perfecto en el hero */
+    --sidebar-collapsed: 76px;
+    --header-height: 56px;
+
+    /* Base styles del contenedor */
+    width: 100%;
+    height: 600px; /* Aumentado un poco para la nueva simulación */
+    background: var(--bg-app);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    
+    /* Previene interacción real si se desea, pero la simulación es autónoma */
+    /* pointer-events: none; */ 
+    
+    /* Sombras para blend con el mockup-chrome frontal */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.auto-tour-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR VIRTUAL
+═══════════════════════════════════════════════════════════════════════════ */
+.fg-mock-sidebar {
+    position: relative;
+    width: var(--sidebar-width);
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 12px 16px 12px;
+    gap: 4px;
+    z-index: 10;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fg-mock-sidebar.collapsed {
+    width: var(--sidebar-collapsed);
+    padding: 20px 12px 16px 12px;
+}
+
+/* Sidebar Toggle Button */
+.fg-mock-sidebar-toggle {
+    position: absolute;
+    right: -14px;
+    top: 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    z-index: 11;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.fg-mock-sidebar-toggle svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.fg-mock-sidebar.collapsed .fg-mock-sidebar-toggle svg {
+    transform: rotate(180deg);
+}
+
+.fg-mock-sidebar-toggle.hover {
+    background: var(--bg-hover);
+    border-color: var(--border-medium);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fg-mock-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 0 8px;
+}
+.fg-mock-brand img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+.fg-mock-brand h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.4px;
+    margin: 0;
+    color: var(--text-primary);
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.fg-mock-sidebar.collapsed .fg-mock-brand h1 {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.fg-mock-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 0 8px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.fg-mock-navbtn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.fg-mock-navbtn span {
+    transition: opacity 0.2s ease;
+}
+.fg-mock-sidebar.collapsed .fg-mock-navbtn span {
+    opacity: 0;
+    display: none;
+}
+.fg-mock-navbtn svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.8;
+    flex-shrink: 0;
+}
+
+.fg-mock-navbtn.active {
+    background: var(--bg-active);
+    color: var(--text-inverse);
+    font-weight: 600;
+}
+/* Clase hover artificial para el puntero fantasma */
+.fg-mock-navbtn.hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.fg-mock-logout {
+    margin-top: auto;
+    color: var(--text-tertiary);
+}
+.fg-mock-logout.hover {
+    background: rgba(255, 59, 48, 0.08);
+    color: #ff3b30;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN AREA & HEADER
+═══════════════════════════════════════════════════════════════════════════ */
+.fg-mock-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--bg-app);
+}
+
+.fg-mock-header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: var(--bg-card); /* bg-header de la app real vira mas al card opaco */
+    border-bottom: 1px solid var(--border-light);
+    z-index: 5;
+}
+
+.fg-mock-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    color: var(--text-tertiary);
+    font-size: 13px;
+}
+.fg-mock-search svg { 
+    width: 16px; 
+    height: 16px; 
+}
+
+.fg-mock-header-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.fg-mock-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTENT AREA & ESCENAS
+═══════════════════════════════════════════════════════════════════════════ */
+.fg-mock-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: hidden;
+    position: relative;
+}
+
+/* Placeholder para MO-2, 3, etc. */
+.fg-mock-scene {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+.fg-mock-scene.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CURSOR SIMULADO FANTASMA
+═══════════════════════════════════════════════════════════════════════════ */
+.auto-tour-cursor {
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    width: 24px;
+    height: 24px;
+    /* Usamos un SVG encrustado para el puntero estilo Mac */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.5 2.5L20 12l-6.5 1.5L16.5 21l-3 1.5-3-7.5L4 18V2.5z" fill="%23000000" stroke="%23ffffff" stroke-width="1.5"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 9999;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), top 0.6s cubic-bezier(0.25, 1, 0.5, 1), left 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transform-origin: top left;
+}
+
+.auto-tour-cursor.clicking {
+    transform: scale(0.85);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DASHBOARD STYLES (CALCO DE APP/DASHBOARD.HTML)
+═══════════════════════════════════════════════════════════════════════════ */
+.fg-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+}
+
+.fg-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.fg-dashboard-welcome h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.fg-dashboard-welcome p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.fg-period-selector {
+    display: flex;
+    align-items: center;
+}
+
+.fg-period-chips {
+    display: flex;
+    background: var(--bg-hover);
+    border-radius: var(--radius-full);
+    padding: 4px;
+    gap: 2px;
+}
+
+.fg-period-chip {
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    transition: all 0.2s ease;
+}
+
+.fg-period-chip.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.fg-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.fg-kpi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    box-shadow: var(--shadow-sm);
+}
+
+.fg-kpi-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fg-kpi-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fg-kpi-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.fg-kpi-subtitle {
+    font-size: 11.5px;
+    color: var(--text-tertiary);
+    line-height: 1.3;
+}
+
+.fg-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.fg-dash-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.fg-dash-card-header {
+    margin-bottom: 12px;
+}
+
+.fg-dash-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.fg-ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fg-ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+}
+
+.fg-ranking-info {
+    flex: 1;
+}
+
+.fg-ranking-position {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--text-inverse);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fg-ranking-position.pos-2 {
+    background: var(--text-secondary);
+}
+
+.fg-ranking-info {
+    flex: 1;
+}
+
+.fg-ranking-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.fg-ranking-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}

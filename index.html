@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FirstGod — Sistema de gestión para comercios · Pago único, sin cuota mensual</title>
+  <meta name="description"
+    content="Controlá ventas, stock, clientes y reportes de tu comercio desde un solo lugar. Pago único, sin cuota mensual. Tus datos en Google Drive." />
+  <meta name="author" content="FirstGod" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FirstGod — Sistema de gestión para comercios · Pago único" />
+  <meta property="og:description"
+    content="Controlá ventas, stock, clientes y reportes de tu comercio. Pago único, sin cuota mensual." />
+  <meta property="og:url" content="https://firstgod.app/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://firstgod.app/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="stylesheet" href="src/styles/components.css" />
+  <link rel="stylesheet" href="src/styles/animations.css" />
+  <link rel="stylesheet" href="src/styles/auto-tour.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FirstGod",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://firstgod.app",
+      "description": "Sistema web de gestión profesional: ventas, stock, clientes y reportes en tiempo real."
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ============================================
+       NAVBAR
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo" id="navbar-logo">
+        <img src="public/img/logo-firstgod.png" alt="FirstGod" class="navbar__logo-img" width="32" height="32">
+        FirstGod
+      </a>
+
+      <!-- Desktop links -->
+      <div class="navbar__links" id="navbar-links">
+        <a href="#pain-points" class="navbar__link">Problemas</a>
+        <a href="#benefits" class="navbar__link">Beneficios</a>
+        <a href="#faq" class="navbar__link">Preguntas</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button class="navbar__toggle" id="navbar-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="navbar__mobile-menu" id="navbar-mobile-menu">
+      <a href="#pain-points" class="navbar__mobile-link">Problemas</a>
+      <a href="#benefits" class="navbar__mobile-link">Beneficios</a>
+      <a href="#faq" class="navbar__mobile-link">Preguntas</a>
+    </div>
+  </nav>
+
+
+  <!-- ============================================
+       HERO — Interactive Tech Section
+       ============================================ -->
+  <header class="hero" id="hero">
+
+    <!-- Canvas: Node network background -->
+    <canvas class="hero__canvas" id="hero-canvas"></canvas>
+
+    <!-- Overlay gradient -->
+    <div class="hero__overlay"></div>
+
+    <!-- Ambient Decorative Orbs -->
+    <div class="hero__ambient">
+      <div class="ambient-orb ambient-orb--1"></div>
+      <div class="ambient-orb ambient-orb--2"></div>
+    </div>
+
+      <!-- Hero content -->
+    <div class="container">
+      <div class="hero__content">
+
+        <!-- Title -->
+        <h1 class="hero__title anim-fade-in-up anim-fade-in-up--d2">
+          Dejá de adivinar<br>cuánto vendés.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero__subtitle anim-fade-in-up anim-fade-in-up--d3">
+          Ventas, stock, clientes y reportes en tiempo real para comercios que venden productos por unidad.
+        </p>
+
+        <!-- Highlight -->
+        <p class="hero__highlight anim-fade-in-up anim-fade-in-up--d3">
+          Pagás una vez y es tuyo para siempre.
+        </p>
+      </div>
+
+      <!-- ——— Dashboard Showcase (Scroll-Driven Video) ——— -->
+      <div class="scroll-video-container" id="scroll-video-container">
+        <div class="scroll-video-sticky" id="scroll-video-sticky">
+          <div class="hero__showcase anim-scale-in anim-scale-in--d5">
+            <!-- Glow under the mockup -->
+            <div class="hero__glow"></div>
+            <div class="hero__mockup-wrapper">
+              <!-- Main mockup (browser chrome + video) -->
+              <div class="hero__mockup-main">
+                <div class="mockup-chrome">
+                  <span class="mockup-chrome__dot mockup-chrome__dot--red"></span>
+                  <span class="mockup-chrome__dot mockup-chrome__dot--yellow"></span>
+                  <span class="mockup-chrome__dot mockup-chrome__dot--green"></span>
+                  <span class="mockup-chrome__url">app.firstgod.com/dashboard</span>
+                </div>
+                
+                <div class="video-hardware-screen">
+                  <video id="scroll-video" src="public/img/demo.mp4" muted playsinline preload="auto" class="scroll-responsive-video"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Marcas post-video -->
+          <div class="scroll-video-brands" id="scroll-video-brands">
+             <div class="brands__header" style="margin-bottom: var(--space-6);">
+               <h3 class="brands__title" style="font-size: var(--fs-lg);">Ellos ya confían en nosotros</h3>
+             </div>
+             
+             <div class="brands__grid">
+               <!-- CGCARTERAS -->
+               <div class="brand-item">
+                 <img src="public/img/cgcarteras.jpg" alt="CGCARTERAS" class="brand-item__img" loading="lazy">
+                 <div class="brand-item__info">
+                   <span class="brand-item__name">CGCARTERAS</span>
+                   <span class="brand-item__cat">Marroquinería</span>
+                 </div>
+               </div>
+
+               <!-- PUNTA SHOP -->
+               <div class="brand-item">
+                 <img src="public/img/puntashop.jpg" alt="PUNTA SHOP" class="brand-item__img" loading="lazy">
+                 <div class="brand-item__info">
+                   <span class="brand-item__name">PUNTA SHOP</span>
+                   <span class="brand-item__cat">Deco y bazar</span>
+                 </div>
+               </div>
+
+               <!-- Ghalia Kids -->
+               <div class="brand-item">
+                 <img src="public/img/ghalia.kids.jpg" alt="Ghalia Kids" class="brand-item__img" loading="lazy">
+                 <div class="brand-item__info">
+                   <span class="brand-item__name">Ghalia Kids</span>
+                   <span class="brand-item__cat">Ropa de Niños</span>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ============================================
+       PAIN POINTS — ¿Te suena algo de esto?
+       ============================================ -->
+  <section class="section pain-points" id="pain-points">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tag">¿Te pasa esto?</span>
+        <h2 class="section-header__title">¿Te suena algo de esto?</h2>
+        <p class="section-header__desc">Si algo te resulta familiar, no es un problema de tu negocio. Es un problema de
+          herramientas.</p>
+      </div>
+      <div class="pain-points__grid">
+        <div class="pain-card reveal reveal--d1">
+          <div class="pain-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 15h8M9 9h.01M15 9h.01" />
+            </svg>
+          </div>
+          <p class="pain-card__text">No sabés exactamente cuánto vendiste ayer</p>
+        </div>
+        <div class="pain-card reveal reveal--d2">
+          <div class="pain-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m7.5 4.27 9 5.15" />
+              <path
+                d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+              <path d="m3.3 7 8.7 5 8.7-5" />
+              <path d="M12 22V12" />
+            </svg>
+          </div>
+          <p class="pain-card__text">Tu stock dice una cosa pero en el local hay otra</p>
+        </div>
+        <div class="pain-card reveal reveal--d3">
+          <div class="pain-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <path d="M14 2v6h6" />
+            </svg>
+          </div>
+          <p class="pain-card__text">Usás Excel o papel y siempre hay errores</p>
+        </div>
+        <div class="pain-card reveal reveal--d1">
+          <div class="pain-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <p class="pain-card__text">No podés controlar lo que pasa cuando no estás</p>
+        </div>
+        <div class="pain-card reveal reveal--d2">
+          <div class="pain-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <p class="pain-card__text">Pagás un sistema por mes y ni lo usás completo</p>
+        </div>
+        <div class="pain-card reveal reveal--d3">
+          <div class="pain-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <p class="pain-card__text">Dependés de otra persona para sacar un dato básico</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       TRANSITION BANNER
+       ============================================ -->
+  <div class="banner" id="banner-trust">
+    <div class="banner__track">
+      <div class="banner__content">
+        <span class="banner__item">Sabé cuánto vendiste</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Controlá tu stock</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Conocé a tus clientes</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Decidí con datos</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Pago único</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Tus datos en Google Drive</span>
+        <span class="banner__separator">✦</span>
+      </div>
+      <div class="banner__content" aria-hidden="true">
+        <span class="banner__item">Sabé cuánto vendiste</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Controlá tu stock</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Conocé a tus clientes</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Decidí con datos</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Pago único</span>
+        <span class="banner__separator">✦</span>
+        <span class="banner__item">Tus datos en Google Drive</span>
+        <span class="banner__separator">✦</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       BENEFITS — Dolor → Solución
+       ============================================ -->
+  <section class="section benefits" id="benefits">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tag">Beneficios</span>
+        <h2 class="section-header__title">Lo que FirstGod resuelve por vos</h2>
+        <p class="section-header__desc">Cada problema tiene una solución concreta. Así funciona en tu día a día.</p>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit-card reveal reveal--d1">
+          <div class="benefit-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <span class="benefit-card__pain">“No sé cuánto vendí hoy”</span>
+          <h3 class="benefit-card__title">Abrís la app y en 5 segundos sabés cómo viene el día</h3>
+          <p class="benefit-card__desc">Dashboard con ventas del día, semana y mes. Métodos de pago, descuentos y todo
+            sincronizado automáticamente.</p>
+        </div>
+        <div class="benefit-card reveal reveal--d2">
+          <div class="benefit-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m7.5 4.27 9 5.15" />
+              <path
+                d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+              <path d="m3.3 7 8.7 5 8.7-5" />
+              <path d="M12 22V12" />
+            </svg>
+          </div>
+          <span class="benefit-card__pain">“Mi stock no cierra nunca”</span>
+          <h3 class="benefit-card__title">Cada venta resta stock. Siempre sabés qué tenés</h3>
+          <p class="benefit-card__desc">Descuento automático por cada venta. Alertas de bajo stock, historial de
+            movimientos y gestión por sucursal.</p>
+        </div>
+        <div class="benefit-card reveal reveal--d3">
+          <div class="benefit-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <path d="M14 2v6h6" />
+            </svg>
+          </div>
+          <span class="benefit-card__pain">“Uso Excel y siempre hay errores”</span>
+          <h3 class="benefit-card__title">Chau planillas, chau errores manuales</h3>
+          <p class="benefit-card__desc">Registro digital con validación automática. Todo queda guardado, organizado y
+            sin riesgo de perder datos.</p>
+        </div>
+        <div class="benefit-card reveal reveal--d1">
+          <div class="benefit-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <span class="benefit-card__pain">“No puedo controlar cuando no estoy”</span>
+          <h3 class="benefit-card__title">Ves qué vendió cada empleado, desde cualquier lugar</h3>
+          <p class="benefit-card__desc">Multi-usuario con historial completo y actividad registrada. Sabé quién hizo
+            qué, cuándo y desde dónde.</p>
+        </div>
+        <div class="benefit-card reveal reveal--d2">
+          <div class="benefit-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="m19 9-5 5-4-4-3 3" />
+            </svg>
+          </div>
+          <span class="benefit-card__pain">“No sé qué producto rinde más”</span>
+          <h3 class="benefit-card__title">Top productos, mejores clientes y vendedor estrella en un clic</h3>
+          <p class="benefit-card__desc">Reportes inteligentes con rankings automáticos. Tomá decisiones basadas en datos
+            reales, no en intuición.</p>
+        </div>
+        <div class="benefit-card reveal reveal--d3">
+          <div class="benefit-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+              <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+              <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+              <path d="M10 6h4" />
+              <path d="M10 10h4" />
+              <path d="M10 14h4" />
+              <path d="M10 18h4" />
+            </svg>
+          </div>
+          <span class="benefit-card__pain">“Tengo más de un local”</span>
+          <h3 class="benefit-card__title">Gestioná múltiples locales desde una sola cuenta</h3>
+          <p class="benefit-card__desc">Datos unificados, permisos por usuario y vista global del negocio. Un sistema,
+            todos tus locales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- ============================================
+       DIFFERENTIATORS — Lo que nos hace diferentes
+       ============================================ -->
+  <section class="section differentiators" id="differentiators">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tag">Diferencial</span>
+        <h2 class="section-header__title">Lo que nos hace diferentes</h2>
+        <p class="section-header__desc">No somos un sistema más. Estas son las diferencias reales.</p>
+      </div>
+      <div class="diff-table reveal">
+        <div class="diff-table__header">
+          <div class="diff-table__col diff-table__col--others">Otros sistemas</div>
+          <div class="diff-table__col diff-table__col--fg">FirstGod</div>
+        </div>
+        <div class="diff-table__row">
+          <div class="diff-table__cell diff-table__cell--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Cuota mensual eterna
+          </div>
+          <div class="diff-table__cell diff-table__cell--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Pago único. Es tuyo para siempre.
+          </div>
+        </div>
+        <div class="diff-table__row">
+          <div class="diff-table__cell diff-table__cell--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Tus datos en sus servidores
+          </div>
+          <div class="diff-table__cell diff-table__cell--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Tus datos en tu Google Drive.
+          </div>
+        </div>
+        <div class="diff-table__row">
+          <div class="diff-table__cell diff-table__cell--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Si no pagás, perdés todo
+          </div>
+          <div class="diff-table__cell diff-table__cell--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Si dejamos de existir, tu app sigue igual.
+          </div>
+        </div>
+        <div class="diff-table__row">
+          <div class="diff-table__cell diff-table__cell--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Interfaz vieja y compleja
+          </div>
+          <div class="diff-table__cell diff-table__cell--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Diseño limpio, pensado para usarlo rápido.
+          </div>
+        </div>
+        <div class="diff-table__row">
+          <div class="diff-table__cell diff-table__cell--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Soporte con chatbot genérico
+          </div>
+          <div class="diff-table__cell diff-table__cell--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Soporte directo, humano.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FAQ — Preguntas frecuentes
+       ============================================ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tag">Preguntas frecuentes</span>
+        <h2 class="section-header__title">Todo lo que necesitás saber</h2>
+        <p class="section-header__desc">Las respuestas más directas. Sin letra chica.</p>
+      </div>
+      <div class="faq__list reveal" id="faq-list">
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Tengo que pagar todos
+              los meses?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>No. Es un pago único. No es suscripción. Pagás una vez y el sistema es tuyo para siempre.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Es seguro? ¿Dónde quedan
+              mis datos?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>Todo queda guardado en tu Google Drive. Usa la seguridad de Google. Tus datos son tuyos y nadie te los
+              puede bloquear.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Sirve para mi tipo de
+              negocio?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>Sí, si vendés productos físicos: ropa, calzado, mochilas, electrónica, bazar, deco, etc. Está pensado
+              para ese tipo de comercio.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Esto reemplaza el
+              Excel?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>Sí. De hecho, elimina los errores típicos del Excel manual y el papel. Todo automatizado y organizado.
+            </p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Qué pasa si ustedes
+              dejan de ofrecer el servicio?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>Nada. La aplicación sigue funcionando igual porque está en tu Google. No es un sistema alquilado, es
+              tuyo.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Puedo usarlo con más de
+              un local?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>Sí. Podés manejar múltiples locales y ver todo centralizado desde una sola cuenta.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false"><span class="faq__question-text">¿Es difícil de
+              usar?</span><span class="faq__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg></span></button>
+          <div class="faq__answer">
+            <p>No. Está hecho para que cualquier persona lo entienda sin ser técnico. En el mismo día podés estar
+              cargando ventas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq__closer reveal">
+        <p>¿Tenés otra duda? <a href="https://wa.me/5491131688105?text=Hola%2C%20estuve%20leyendo%20las%20preguntas%20frecuentes%20de%20FirstGod%20pero%20me%20qued%C3%B3%20una%20duda." target="_blank" rel="noopener noreferrer">Escribinos
+            por WhatsApp</a> y te respondemos al toque.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       PRICING / CTA
+       ============================================ -->
+  <section class="section cta" id="pricing">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="cta-box__particle cta-box__particle--1"></div>
+        <div class="cta-box__particle cta-box__particle--2"></div>
+        <div class="cta-box__particle cta-box__particle--3"></div>
+        <div class="cta-box__content">
+          <span class="cta-box__badge">
+            <span class="cta-box__badge-dot"></span>
+            Disponible ahora
+          </span>
+          <h2 class="cta-box__title">Tu negocio puede estar<br>ordenado en 24 horas</h2>
+          <p class="cta-box__desc">Escribinos para acceder con el 50% de descuento al sistema.</p>
+          <div class="cta-box__actions">
+            <a href="https://wa.me/5491131688105?text=Hola%2C%20quiero%20acceder%20con%20el%2050%25%20de%20descuento%20al%20sistema"
+              target="_blank" rel="noopener noreferrer" class="btn btn--cta" id="cta-main-btn">
+              Escribinos por WhatsApp
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+          <p class="cta-box__guarantee">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+            Pago único · Soporte incluido · Tus datos en Google Drive
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="public/img/logo-firstgod.png" alt="FirstGod — Sistema de gestión para comercios"
+              class="footer__logo-img" width="36" height="36">
+            <span class="footer__logo-text">FirstGod</span>
+          </div>
+          <p class="footer__brand-desc">Sistema de gestión para comercios que venden productos físicos. Pago único, sin
+            cuota mensual.</p>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Producto</h4>
+          <ul class="footer__links">
+            <li><a href="#benefits">Beneficios</a></li>
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+            <li><a href="#pricing">Precios</a></li>
+            <li><a href="#video">Demo</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Contacto</h4>
+          <ul class="footer__links">
+            <li><a href="https://wa.me/5491131688105?text=Hola!%20Llegu%C3%A9%20al%20final%20de%20la%20p%C3%A1gina%20y%20quiero%20hacer%20una%20consulta%20sobre%20FirstGod." target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/firstgod.app/" target="_blank"
+                rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__divider"></div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 FirstGod. Todos los derechos reservados.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/firstgod.app/" target="_blank" rel="noopener noreferrer"
+            class="footer__social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================
+       WHATSAPP FLOATING BUTTON
+       ============================================ -->
+  <a href="https://wa.me/5491131688105?text=Hola%21%20Estaba%20viendo%20la%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20info%20de%20FirstGod%20para%20mi%20local." target="_blank"
+    rel="noopener noreferrer" class="whatsapp-float" id="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+
+
+
+  <!-- ============================================
+       STRUCTURED DATA — FAQPage
+       ============================================ -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Tengo que pagar todos los meses?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es un pago único. No es suscripción. Pagás una vez y el sistema es tuyo para siempre."}},
+        {"@type": "Question", "name": "¿Es seguro? ¿Dónde quedan mis datos?", "acceptedAnswer": {"@type": "Answer", "text": "Todo queda guardado en tu Google Drive. Usa la seguridad de Google. Tus datos son tuyos y nadie te los puede bloquear."}},
+        {"@type": "Question", "name": "¿Sirve para mi tipo de negocio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, si vendés productos físicos: ropa, calzado, mochilas, electrónica, bazar, deco, etc."}},
+        {"@type": "Question", "name": "¿Esto reemplaza el Excel?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Elimina los errores típicos del Excel manual y el papel."}},
+        {"@type": "Question", "name": "¿Qué pasa si ustedes dejan de ofrecer el servicio?", "acceptedAnswer": {"@type": "Answer", "text": "Nada. La aplicación sigue funcionando igual porque está en tu Google."}},
+        {"@type": "Question", "name": "¿Puedo usarlo con más de un local?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Podés manejar múltiples locales y ver todo centralizado."}},
+        {"@type": "Question", "name": "¿Es difícil de usar?", "acceptedAnswer": {"@type": "Answer", "text": "No. Está hecho para que cualquier persona lo entienda sin ser técnico."}}
+      ]
+    }
+  </script>
+
+
+  <!-- ============================================
+       SCRIPTS
+       ============================================ -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="src/js/main.js"></script>
+  <!-- <script src="src/js/auto-tour.js"></script> -->
+
+  <script>
+    /* —— Navbar: efecto scroll glassmorphism —— */
+    (function () {
+      const navbar = document.getElementById('navbar');
+      const SCROLL_THRESHOLD = 20;
+      function onScroll() {
+        if (window.scrollY > SCROLL_THRESHOLD) {
+          navbar.classList.add('navbar--scrolled');
+        } else {
+          navbar.classList.remove('navbar--scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* —— Mobile menu toggle —— */
+    (function () {
+      const toggle = document.getElementById('navbar-toggle');
+      const menu = document.getElementById('navbar-mobile-menu');
+      const navbar = document.getElementById('navbar');
+      let isOpen = false;
+      toggle.addEventListener('click', function () {
+        isOpen = !isOpen;
+        menu.classList.toggle('is-open', isOpen);
+        navbar.classList.toggle('navbar--menu-open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        const bars = toggle.querySelectorAll('span');
+        if (isOpen) {
+          bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          bars[1].style.opacity = '0';
+          bars[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+          bars[0].style.transform = 'none';
+          bars[1].style.opacity = '1';
+          bars[2].style.transform = 'none';
+        }
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          isOpen = false;
+          menu.classList.remove('is-open');
+          navbar.classList.remove('navbar--menu-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          const bars = toggle.querySelectorAll('span');
+          bars[0].style.transform = 'none';
+          bars[1].style.opacity = '1';
+          bars[2].style.transform = 'none';
+        });
+      });
+    })();
+
+    /* —— Smooth scroll para anchors —— */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+
+    /* —— FAQ Accordion —— */
+    (function () {
+      document.querySelectorAll('.faq__question').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          var answer = btn.nextElementSibling;
+          var parent = btn.closest('.faq__list');
+          if (parent) {
+            parent.querySelectorAll('.faq__question[aria-expanded="true"]').forEach(function (openBtn) {
+              if (openBtn !== btn) {
+                openBtn.setAttribute('aria-expanded', 'false');
+                openBtn.nextElementSibling.classList.remove('is-open');
+              }
+            });
+          }
+          btn.setAttribute('aria-expanded', !isExpanded);
+          answer.classList.toggle('is-open', !isExpanded);
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
