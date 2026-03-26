@@ -369,7 +369,24 @@
     var video = document.getElementById('scroll-video');
     
     if (!container || !video) return;
-    video.pause();
+
+    // Desbloquear video en mobile (iOS/Android bloquean el scrubbing
+    // hasta que el video haya sido reproducido al menos una vez)
+    video.muted = true;
+    video.playsInline = true;
+    var unlocked = false;
+
+    function unlockVideo() {
+      if (unlocked) return;
+      video.play().then(function () {
+        video.pause();
+        video.currentTime = 0;
+        unlocked = true;
+      }).catch(function () {
+        // Autoplay bloqueado — igual intentamos con currentTime
+        unlocked = true;
+      });
+    }
 
     function updateVideoOnScroll() {
       var rect = container.getBoundingClientRect();
@@ -395,8 +412,13 @@
     }
 
     video.addEventListener('loadedmetadata', function () {
+      unlockVideo();
       updateVideoOnScroll();
     });
+
+    // Primer toque/scroll del usuario: desbloquear video en mobile
+    document.addEventListener('touchstart', unlockVideo, { once: true, passive: true });
+    document.addEventListener('scroll', unlockVideo, { once: true, passive: true });
 
     window.addEventListener('scroll', function () {
       requestAnimationFrame(updateVideoOnScroll);
