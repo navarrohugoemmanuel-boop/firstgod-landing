@@ -336,26 +336,30 @@
      6. RIPPLE EFFECT (CTA button)
      —————————————————————————————————————————— */
   function initRippleEffect() {
-    var ctaBtn = document.getElementById('cta-main-btn');
-    if (!ctaBtn) return;
+    var ctaBtns = document.querySelectorAll('.btn--cta');
+    ctaBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        // No prevenimos el click para permitir la navegación del link
+        var rect = btn.getBoundingClientRect();
+        var ripple = document.createElement('span');
+        ripple.className = 'ripple';
 
-    ctaBtn.addEventListener('click', function (e) {
-      e.preventDefault();
+        var size = Math.max(rect.width, rect.height) * 2;
+        ripple.style.width = size + 'px';
+        ripple.style.height = size + 'px';
+        
+        // Soporte para touch/click coordinados
+        var x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+        var y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
 
-      var rect = ctaBtn.getBoundingClientRect();
-      var ripple = document.createElement('span');
-      ripple.className = 'ripple';
+        ripple.style.left = (x - size / 2) + 'px';
+        ripple.style.top = (y - size / 2) + 'px';
 
-      var size = Math.max(rect.width, rect.height) * 2;
-      ripple.style.width = size + 'px';
-      ripple.style.height = size + 'px';
-      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        btn.appendChild(ripple);
 
-      ctaBtn.appendChild(ripple);
-
-      ripple.addEventListener('animationend', function () {
-        ripple.remove();
+        ripple.addEventListener('animationend', function () {
+          ripple.remove();
+        });
       });
     });
   }
